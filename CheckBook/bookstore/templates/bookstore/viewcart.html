@@ -1,0 +1,35 @@
+{% extends 'bookstore/base.html' %}
+{% load static%}
+
+{% block title %}
+ViewCart | Bookstore
+{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10">
+            <br>
+            <h5>Books:</h5>
+            <div class="card card-body">            
+                <table class="table table-sm">
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Price</th>
+                        <th>Edition</th>
+                    </tr>
+                    {% for book in cart.books.all %}
+                    <tr>
+                        <td>{{book.Title}} </td>
+                        <td>{{book.Author}} </td>
+                        <td>{{book.Summary}} </td>
+                        <td>{{book.Edition}} </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
